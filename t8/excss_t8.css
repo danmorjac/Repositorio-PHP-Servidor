@@ -1,0 +1,25 @@
+ex3library_t8.css:
+.cabecera
+{
+margin-left:auto;
+margin-right:auto;
+width:100%;
+height:10%;
+background-color:#F0F0F0 ;
+text-align:center;
+}
+.menu
+{
+background-color:#00FF99;
+height:80%;
+width:15%;
+text-align:center;
+float:left;
+}
+.centro{
+background-color:#FFFFCC;
+height:80%;
+width:85%;
+text-align:center;
+float:right;
+}
