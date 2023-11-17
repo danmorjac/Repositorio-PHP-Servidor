@@ -1,17 +1,21 @@
 <html>
-<head><title>Libros</title></head>
-<body>
-<form method="post" action="libros_guardar.php">
-INSERTE LOS DATOS DEL LIBRO<br><br>
-Título <input type="text" name="titulo"><br><br>
-Tipo:<br>
-<input checked type="radio" name="tipo" value="Ejemplar">Ejemplar
-<input type="radio" name="tipo" value="Colección">Colección<br><br>
-Observaciones:<br>
-<textarea name="observaciones" rows="5" cols="50"></textarea><br><br>
-<input type="submit" name="enviar" value="Guardar datos del libro">
-</form>
-<a href="libros_datos.php">Mostrar los libros guardados</a>
-</body>
-</html>
 
+<head>
+    <title>Libros</title>
+</head>
+
+<body>
+    <form method="post" action="libros_guardar.php">
+        INSERTE LOS DATOS DEL LIBRO<br><br>
+        Titulo <input type="text" name="titulo"><br><br>
+        Tipo:<br>
+        <input checked type="radio" name="tipo" value="Ejemplar">Ejemplar
+        <input type="radio" name="tipo" value="Colecciï¿½n">Coleccion<br><br>
+        Observaciones:<br>
+        <textarea name="observaciones" rows="5" cols="50"></textarea><br><br>
+        <input type="submit" name="enviar" value="Guardar datos del libro">
+    </form>
+    <a href="libros_datos.php">Mostrar los libros guardados</a>
+</body>
+
+</html>

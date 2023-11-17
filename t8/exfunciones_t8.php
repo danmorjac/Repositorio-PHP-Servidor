@@ -1,10 +1,13 @@
 <?php
-function cabecera(){
-?><div class=”cabecera”>CABECERA</div><?php
+function cabecera()
+{
+    ?>
+    <div class=ï¿½cabeceraï¿½>CABECERA</div><?php
 }
 ?>
 <?php
-function menu(){
-?><div class=”menu”>MENU</div><?php
+function menu()
+{
+    ?><div class=ï¿½menuï¿½>MENU</div><?php
 }
 ?>
