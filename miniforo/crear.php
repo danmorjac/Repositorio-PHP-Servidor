@@ -10,6 +10,7 @@ $tabla1 = "usuarios";
 $sql_creartabla1 = "CREATE TABLE $tabla1(";
 $sql_creartabla1 .= "usuario VARCHAR(20) PRIMARY KEY NOT NULL, ";
 $sql_creartabla1 .= "clave VARCHAR(20) NOT NULL, tipo VARCHAR(20) NOT NULL);";
+
 $sql_insertarregistros1 = "INSERT INTO $tabla1 VALUES ";
 $sql_insertarregistros1 .= "('usuario','usuario','registrado'),";
 $sql_insertarregistros1 .= "('admin','admin','administrador'),";
@@ -20,6 +21,7 @@ $sql_creartabla2 = "CREATE TABLE $tabla2(";
 $sql_creartabla2 .= "id INT AUTO_INCREMENT PRIMARY KEY NOT NULL, ";
 $sql_creartabla2 .= "usuario VARCHAR(20) NOT NULL, fechahora DATETIME NOT NULL, ";
 $sql_creartabla2 .= "tema CHAR(50) NOT NULL, mensaje TEXT NOT NULL);";
+
 $sql_insertarregistros2 = "INSERT INTO $tabla2 VALUES ";
 $sql_insertarregistros2 .= "(NULL,'admin','2007-12-31 15:50:55','Bienvenidos','Un saludo');";
 

@@ -12,7 +12,7 @@ if ( isset($_SESSION['usuario']) && isset($_SESSION['tipo']) ){
 	
 	$conexion=mysqli_connect($servidor,$usuario_bd,$clave_bd);
 	if (! $conexion){
-		echo "ERROR: Imposible establecer conexión con el servidor $servidor.<br>\n";
+		echo "ERROR: Imposible establecer conexiï¿½n con el servidor $servidor.<br>\n";
 	}
 	else{
 		$resultado=mysqli_select_db($conexion, $basedatos);
@@ -34,10 +34,10 @@ if ( isset($_SESSION['usuario']) && isset($_SESSION['tipo']) ){
 				
 				while($fila=mysqli_fetch_array($resultado)){
 				 
-				 	// La fecha de está $fila['fechaalta'] en formato año-mes-día (mal).
-				 	// Dentro de la fecha, separamos el año, mes y día (por el guión).
+				 	// La fecha de esta $fila['fechaalta'] en formato aï¿½o-mes-dï¿½a (mal).
+				 	// Dentro de la fecha, separamos el aï¿½o, mes y dï¿½a (por el guiï¿½n).
 				 	$vectorfecha=explode("-",$fila['fechaalta']);
-				 	// Reconstruimos la cadena: "día-mes-año hora:minutos:segundos"
+				 	// Reconstruimos la cadena: "dï¿½a-mes-aï¿½o hora:minutos:segundos"
 				 	$fechacorrecta=$vectorfecha[2]."-".$vectorfecha[1]."-".
 						$vectorfecha[0];
 						
@@ -45,14 +45,14 @@ if ( isset($_SESSION['usuario']) && isset($_SESSION['tipo']) ){
 					echo "<b>Id:</b> " . $fila['id'] . 
 						" <b>Nombre:</b> " . $fila['nombre'] .
 						" <b>FechaAlta:</b> " . $fechacorrecta .
-						" <b>Precio:</b> " . $fila['precio'] . "€" .
+						" <b>Precio:</b> " . $fila['precio'] . "ï¿½" .
 						"<br>\n<b>Descripcion:</b><br>\n" . 
 							nl2br($fila['descripcion']);
 						
-					// La función nl2br cambia los \n por <br> para que se respeten
-					// los saltos de línea (\n) del texto al mostrarlo en una página
-					// web, ya que en html los \n no saltan (aparecería todo el texto
-					// en una única línea si no se transforman en <br>).
+					// La funciï¿½n nl2br cambia los \n por <br> para que se respeten
+					// los saltos de lï¿½nea (\n) del texto al mostrarlo en una pï¿½gina
+					// web, ya que en html los \n no saltan (aparecerï¿½a todo el texto
+					// en una ï¿½nica lï¿½nea si no se transforman en <br>).
 					
 					if($_SESSION['tipo']=='administrador'){
 					 	echo "<br><a href='comprobareliminar.php?id=" . 
