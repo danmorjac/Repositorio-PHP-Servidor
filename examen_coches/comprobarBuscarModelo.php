@@ -3,7 +3,7 @@
             echo "Rellena los datos de busqueda.";  
             echo "<a href='buscarModelo.php'><--Volver atrás</a>";
         } else {
-            include("crearbasededatosytablas.php");
+            include("data.php");
 
             $modelo=$_POST['modelo'];
             $sql="SELECT * FROM $tabla WHERE modelo='$modelo';";
@@ -36,7 +36,7 @@
 
                                 echo "<br><a href='borrar.php?id=$id'>Borrar</a>";
 
-                                echo "<a href='editar.php?id=$id'>Editar</a>";
+                                echo "<br><a href='editar.php?id=$id'>Editar</a>";
                                 
                             }
 

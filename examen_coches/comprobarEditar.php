@@ -7,7 +7,7 @@
 </head>
 <body>
 <?php
-    include("datos.php");
+    include("data.php");
 	
     $id = $_GET['id'];
     $marca=$_POST['marca'];
@@ -31,7 +31,7 @@
 					echo "ERROR: No fue posible editar el coche " . $_GET['id'] . "<br>\n";
 				}
 				else{
-				 	echo "Datos del coche con " . $marca . " marca cambiada.";
+				 	echo "Datos del coche con marca " . $marca . " cambiada.";
 				}
 			}
 			mysqli_close($conexion);
