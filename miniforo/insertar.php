@@ -1,4 +1,9 @@
 <?php
+
+require_once "../utils/database/set-connection.php";
+require_once "../utils/database/execute-sql.php";
+
+
 session_start(); // Usaremos sesiones.
 
 $brevedescripcion="Insertar Mensaje nuevo";

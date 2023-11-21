@@ -10,32 +10,24 @@
 <body>
 
     <?php
-    include("data.php");
+
+    require_once "../utils/database/set-connection.php";
+    require_once "../utils/database/execute-query.php";
+
     $id = $_GET['id'];
 
     $sql = "SELECT foto FROM $tabla WHERE id='$id';";
 
-    $conexion = mysqli_connect($servidor, $usuario_bd, $clave_bd);
-    if (!$conexion) {
-        echo "ERROR: Imposible establecer conexión con el servidor $servidor.<br>\n";
-    } else {
-        $resultado = mysqli_select_db($conexion, $basedatos);
-        if (!$resultado) {
-            echo "ERROR: Imposible seleccionar la base de datos $basedatos.<br>\n";
-        } else {
+    $conexion = setConnection('concesionario');
 
-            $resultado = mysqli_query($conexion, $sql);
-            if (!$resultado) {
-                echo "ERROR: Imposible mostrar la imagen del coche " . $_GET['id'] . "<br>\n";
-            } else {
-                $fila = mysqli_fetch_array($resultado);
-                $foto = $fila['foto'];
-                echo "<img src='$foto' alt='No se puede mostrar la imagen.'style='height:200px; width:200px text-align:center'>";
+    $resultado = executeSQL($conexion, $sql, $tabla);
 
-            }
-        }
-        mysqli_close($conexion);
-    }
+    $fila = mysqli_fetch_array($resultado);
+    $foto = $fila['foto'];
+    echo "<img src='$foto' alt='No se puede mostrar la imagen.'style='height:200px; width:200px text-align:center'>";
+
+    mysqli_close($conexion);
+
     ?>
     <br><br>
     <form action=<?php echo "comprobarEditar.php?id=$_GET[id]" ?> method="POST">
@@ -45,7 +37,7 @@
         <input type="submit" value="Enviar">
     </form>
 
-    <br><br><a href='crearbasededatosytablas.php'>Volver al índice</a>
+    <br><br><a href='index.php'>Volver al índice</a>
 </body>
 
 </html>

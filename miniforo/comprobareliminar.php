@@ -1,4 +1,9 @@
 <?php
+
+require_once "../utils/database/set-connection.php";
+require_once "../utils/database/execute-sql.php";
+
+
 session_start(); // Usaremos sesiones.
 
 $brevedescripcion = "Eliminar un mensaje";
@@ -22,24 +27,13 @@ if (
 		$sql = "DELETE FROM $tabla WHERE id=" . $_GET['id'] . ";";
 		//echo "<br>$sql<br>";
 
-		$conexion = mysqli_connect($servidor, $usuario_bd, $clave_bd);
-		if (!$conexion) {
-			echo "ERROR: Imposible establecer conexi�n con el servidor $servidor.<br>\n";
-		} else {
-			$resultado = mysqli_select_db($conexion, $basedatos);
-			if (!$resultado) {
-				echo "ERROR: Imposible seleccionar la base de datos $basedatos.<br>\n";
-			} else {
+		$conexion = setConnection("miniforo");
 
-				$resultado = mysqli_query($conexion, $sql);
-				if (!$resultado) {
-					echo "ERROR: Imposible eliminar el mensaje " . $_GET['id'] . "<br>\n";
-				} else {
-					echo "Mensaje " . $_GET['id'] . " eliminado<br>\n";
-				}
-			}
-			mysqli_close($conexion);
-		}
+		$resultado = executeSQL($conexion, $sql, $tabla);
+		echo "Mensaje " . $_GET['id'] . " eliminado<br>\n";
+
+		mysqli_close($conexion);
+
 		echo "<a href='foro.php'>Volver al Foro</a><br>\n";
 		echo "<a href='index.php'>Cambiar de usuario</a><br>\n";
 	} else {
