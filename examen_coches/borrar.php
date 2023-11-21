@@ -10,7 +10,8 @@
 <body>
 	<?php
 
-	include("data.php");
+	require_once "../utils/database/set-connection.php";
+	require_once "../utils/database/execute-sql.php";
 
 	$id = $_GET['id'];
 	$sql = "DELETE FROM $tabla WHERE id='$id';";
@@ -19,7 +20,7 @@
 
 	$resultado = executeSQL($conexion, $sql, $tabla);
 
-	echo "Coche " . $_GET['id'] . " eliminado<br>\n";
+	echo "Coche $id eliminado<br>\n";
 
 	mysqli_close($conexion);
 

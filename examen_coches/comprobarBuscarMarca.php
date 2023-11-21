@@ -1,7 +1,7 @@
 <?php
 
 require_once "../utils/database/set-connection.php";
-require_once "../utils/database/execute-query.php";
+require_once "../utils/database/execute-sql.php";
 
 if (!isset($_POST['marca'])) {
     echo "Rellena los datos de busqueda.";
@@ -13,9 +13,9 @@ if (!isset($_POST['marca'])) {
     $marca = $_POST['marca'];
     $sql = "SELECT * FROM $tabla WHERE marca='$marca';";
 
-    $conexion = setConnection($concesionario);
+    $conexion = setConnection('concesionario');
 
-    $resultado = executeSQL($tabla, $sql, $tabla);
+    $resultado = executeSQL($conexion, $sql, $tabla);
 
     $numeroregistros = mysqli_num_rows($resultado);
 
@@ -26,9 +26,12 @@ if (!isset($_POST['marca'])) {
         $foto = $fila['foto'];
         echo "<hr>\n";
         echo "<b>Id:</b> " . $fila['id'] .
-            " <b>Marca:</b> " . $fila['marca'] .
+            " <b>Marca:</b> " . $fila['marca'] . "<br>";
 
-            $id = $fila['id'];
+        echo "<br>Foto:" . "<br>";
+        echo "<img src='$foto' alt='No se puede mostrar la imagen.'><br>";
+
+        $id = $fila['id'];
 
         echo "<br><a href='borrar.php?id=$id'>Borrar</a>";
 

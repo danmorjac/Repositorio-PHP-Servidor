@@ -12,7 +12,9 @@
     <?php
 
     require_once "../utils/database/set-connection.php";
-    require_once "../utils/database/execute-query.php";
+    require_once "../utils/database/execute-sql.php";
+
+    $tabla = "coches";
 
     $id = $_GET['id'];
 
